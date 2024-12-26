@@ -112,7 +112,7 @@ func buildPluginCmd(args *config.DocArgument) (*exec.Cmd, error) {
 		}
 
 		cmd.Args = append(cmd.Args, meta.TpCompilerThrift)
-		if args.Verbose {
+		if config.GetGlobalArgs().Verbose {
 			cmd.Args = append(cmd.Args, "-v")
 		}
 		cmd.Args = append(cmd.Args,

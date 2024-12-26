@@ -20,7 +20,6 @@ import (
 	"github.com/cloudwego/cwgo/config"
 	"github.com/cloudwego/cwgo/meta"
 	"github.com/cloudwego/cwgo/pkg/api_list"
-	"github.com/cloudwego/cwgo/pkg/arg_config"
 	"github.com/cloudwego/cwgo/pkg/client"
 	"github.com/cloudwego/cwgo/pkg/consts"
 	"github.com/cloudwego/cwgo/pkg/curd/doc"
@@ -49,18 +48,31 @@ func Init() *cli.App {
 			Aliases:     []string{"vv"},
 			Usage:       "turn on verbose mode",
 			Value:       false,
-			Destination: &config.BasicArguments.Verbose,
+			Destination: &globalArgs.Verbose,
 		},
 		&cli.StringFlag{
-			Name:        consts.Config,
+			Name:        consts.Conf,
 			Usage:       "choose config file",
-			Destination: &config.BasicArguments.Config,
-			Action: func(c *cli.Context, _ string) error {
+			Destination: &globalArgs.Config,
+			Action: func(_ *cli.Context, _ string) error {
 				var err error
-				globalArgs, err = arg_config.ReadConfig()
-
+				err = config.ReadConfig()
 				return err
 			},
+		},
+		&cli.StringFlag{
+			Name:        consts.ConfName,
+			Usage:       "determent config file name",
+			Value:       "config",
+			Aliases:     []string{"cn"},
+			Destination: &globalArgs.ConfigName,
+		},
+		&cli.StringFlag{
+			Name:        consts.ConfBranch,
+			Usage:       "determent repo config file branch",
+			Value:       "main",
+			Aliases:     []string{"cb"},
+			Destination: &globalArgs.ConfigBranch,
 		},
 	}
 

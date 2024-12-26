@@ -208,7 +208,7 @@ func checkKitexArgs(a *kargs.Arguments) (err error) {
 }
 
 func hzArgsForHex(c *config.ServerArgument) (*hzConfig.Argument, error) {
-	utils.SetHzVerboseLog(c.Verbose)
+	utils.SetHzVerboseLog(config.GetGlobalArgs().Verbose)
 	hzArgs := hzConfig.NewArgument()
 	err := convertHzArgument(c, hzArgs)
 	if err != nil {

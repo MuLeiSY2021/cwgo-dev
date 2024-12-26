@@ -1,21 +1,13 @@
 package config
 
-import "github.com/cloudwego/cwgo/config/basic"
-
 type BasicArgument struct {
 	Verbose bool
 
-	*basic.ConfigArgument
+	*ConfigArgument
 }
 
-var BasicArguments *BasicArgument
-
-func newBasicArgument() *BasicArgument {
+func NewBasicArgument() *BasicArgument {
 	return &BasicArgument{
-		ConfigArgument: basic.NewConfigArgument(),
+		ConfigArgument: NewConfigArgument(),
 	}
-}
-
-func init() {
-	BasicArguments = newBasicArgument()
 }

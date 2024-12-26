@@ -34,15 +34,18 @@ var kitexTpl embed.FS
 var hertzTpl embed.FS
 
 var (
-	KitexDir = path.Join(os.TempDir(), consts.Kitex)
-	HertzDir = path.Join(os.TempDir(), consts.Hertz)
+	KitexDir  = path.Join(os.TempDir(), consts.Kitex)
+	HertzDir  = path.Join(os.TempDir(), consts.Hertz)
+	ConfigDir = path.Join(os.TempDir(), consts.Conf)
 )
 
 func Init() {
 	os.RemoveAll(KitexDir)
 	os.RemoveAll(HertzDir)
+	os.RemoveAll(ConfigDir)
 	os.Mkdir(KitexDir, 0o755)
 	os.Mkdir(HertzDir, 0o755)
+	os.Mkdir(ConfigDir, 0o755)
 	initDir(kitexTpl, consts.Kitex, KitexDir)
 	initDir(hertzTpl, consts.Hertz, HertzDir)
 }

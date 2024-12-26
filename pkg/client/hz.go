@@ -67,7 +67,7 @@ func convertHzArgument(ca *config.ClientArgument, hzArgument *hzConfig.Argument)
 	hzArgument.Gosrc = ca.GoSrc
 	hzArgument.Gopkg = ca.GoPkg
 	hzArgument.Gopath = ca.GoPath
-	hzArgument.Verbose = ca.Verbose
+	hzArgument.Verbose = config.GetGlobalArgs().Verbose
 	hzArgument.OutDir = ca.Cwd
 	// Automatic judgment param
 	hzArgument.IdlType, err = utils.GetIdlType(abPath)

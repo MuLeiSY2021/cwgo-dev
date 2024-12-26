@@ -170,12 +170,14 @@ const (
 )
 
 const (
-	Config = "config"
-	Type   = "type"
-	Json   = "json"
-	Yaml   = "yaml"
-	Yml    = "yml"
-	Xml    = "xml"
+	Conf       = "conf"
+	Type       = "type"
+	Json       = "json"
+	Yaml       = "yaml"
+	Yml        = "yml"
+	Xml        = "xml"
+	ConfName   = "conf_name"
+	ConfBranch = "conf_branch"
 )
 
 const (

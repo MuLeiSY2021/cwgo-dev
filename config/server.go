@@ -25,9 +25,9 @@ import (
 
 type ServerArgument struct {
 	// Common Param
-	*CommonParam
+	*CommonParam `yaml:",inline"`
 
-	Template   string
+	Template   string `yaml:"template"`
 	Branch     string
 	SliceParam *SliceParam
 	Hex        bool // add http listen for kitex
@@ -39,7 +39,7 @@ type ServerArgument struct {
 }
 
 type CommonParam struct {
-	ServerName string // server name
+	ServerName string `yaml:"serverName"` // server name
 	Type       string // GenerateType: RPC or HTTP
 	GoMod      string // Go Mod name
 	IdlPath    string
