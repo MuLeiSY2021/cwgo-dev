@@ -40,7 +40,7 @@ func Doc(c *config.DocArgument) error {
 
 	switch c.Name {
 	case consts.MongoDb:
-		setLogVerbose(c.Verbose)
+		setLogVerbose(config.BasicArguments.Verbose)
 		if err := plugin.MongoTriggerPlugin(c); err != nil {
 			return err
 		}

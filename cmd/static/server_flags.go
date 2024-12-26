@@ -35,7 +35,6 @@ func serverFlags() []cli.Flag {
 		&cli.StringFlag{Name: consts.Registry, Usage: "Specify the registry, default is None."},
 		&cli.StringSliceFlag{Name: consts.ProtoSearchPath, Aliases: []string{"I"}, Usage: "Add an IDL search path for includes."},
 		&cli.StringSliceFlag{Name: consts.Pass, Usage: "Pass param to hz or Kitex."},
-		&cli.BoolFlag{Name: consts.Verbose, Usage: "Turn on verbose mode."},
 		&cli.BoolFlag{Name: consts.HexTag, Usage: "Add HTTP listen for Kitex.", Destination: &globalArgs.Hex},
 	}
 }

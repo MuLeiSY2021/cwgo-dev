@@ -34,7 +34,6 @@ type DocArgument struct {
 	Name            string
 	ModelDir        string
 	DaoDir          string
-	Verbose         bool
 	ProtoSearchPath []string
 	ProtocOptions   []string // options to pass through to protoc
 	ThriftOptions   []string // options to pass through to thriftgo for go flag
@@ -52,7 +51,6 @@ func (d *DocArgument) ParseCli(ctx *cli.Context) error {
 	d.ModelDir = ctx.String(consts.ModelDir)
 	d.DaoDir = ctx.String(consts.DaoDir)
 	d.Name = ctx.String(consts.Name)
-	d.Verbose = ctx.Bool(consts.Verbose)
 	d.ProtoSearchPath = ctx.StringSlice(consts.ProtoSearchPath)
 	d.ProtocOptions = ctx.StringSlice(consts.Protoc)
 	d.ThriftOptions = ctx.StringSlice(consts.ThriftGo)

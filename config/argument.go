@@ -32,8 +32,6 @@ func GetGlobalArgs() *Argument {
 }
 
 type Argument struct {
-	Verbose bool
-
 	*ServerArgument
 	*ClientArgument
 	*ModelArgument

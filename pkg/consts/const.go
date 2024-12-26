@@ -170,6 +170,15 @@ const (
 )
 
 const (
+	Config = "config"
+	Type   = "type"
+	Json   = "json"
+	Yaml   = "yaml"
+	Yml    = "yml"
+	Xml    = "xml"
+)
+
+const (
 	BashAutocomplete = `#! /bin/bash
 
 # Macs have bash3 for which the bash-completion package doesn't include

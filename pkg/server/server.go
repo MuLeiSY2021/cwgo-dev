@@ -46,7 +46,7 @@ func Server(c *config.ServerArgument) error {
 	switch c.Type {
 	case consts.RPC:
 		var args kargs.Arguments
-		log.Verbose = c.Verbose
+		log.Verbose = config.BasicArguments.Verbose
 		err = convertKitexArgs(c, &args)
 		if err != nil {
 			return err
@@ -89,7 +89,7 @@ func Server(c *config.ServerArgument) error {
 		utils.Hessian2PostProcessing(args)
 	case consts.HTTP:
 		args := hzConfig.NewArgument()
-		utils.SetHzVerboseLog(c.Verbose)
+		utils.SetHzVerboseLog(config.BasicArguments.Verbose)
 		err = convertHzArgument(c, args)
 		if err != nil {
 			return err

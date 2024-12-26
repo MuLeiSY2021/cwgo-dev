@@ -20,6 +20,7 @@ import (
 	"github.com/cloudwego/cwgo/config"
 	"github.com/cloudwego/cwgo/meta"
 	"github.com/cloudwego/cwgo/pkg/api_list"
+	"github.com/cloudwego/cwgo/pkg/arg_config"
 	"github.com/cloudwego/cwgo/pkg/client"
 	"github.com/cloudwego/cwgo/pkg/consts"
 	"github.com/cloudwego/cwgo/pkg/curd/doc"
@@ -32,7 +33,6 @@ import (
 
 func Init() *cli.App {
 	globalArgs := config.GetGlobalArgs()
-	verboseFlag := cli.BoolFlag{Name: "verbose,vv", Usage: "turn on verbose mode"}
 
 	app := cli.NewApp()
 	app.EnableBashCompletion = true
@@ -44,7 +44,24 @@ func Init() *cli.App {
 
 	// global flags
 	app.Flags = []cli.Flag{
-		&verboseFlag,
+		&cli.BoolFlag{
+			Name:        consts.Verbose,
+			Aliases:     []string{"vv"},
+			Usage:       "turn on verbose mode",
+			Value:       false,
+			Destination: &config.BasicArguments.Verbose,
+		},
+		&cli.StringFlag{
+			Name:        consts.Config,
+			Usage:       "choose config file",
+			Destination: &config.BasicArguments.Config,
+			Action: func(c *cli.Context, _ string) error {
+				var err error
+				globalArgs, err = arg_config.ReadConfig()
+
+				return err
+			},
+		},
 	}
 
 	// Commands

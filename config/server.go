@@ -30,7 +30,6 @@ type ServerArgument struct {
 	Template   string
 	Branch     string
 	SliceParam *SliceParam
-	Verbose    bool
 	Hex        bool // add http listen for kitex
 
 	Cwd    string
@@ -58,7 +57,6 @@ func NewServerArgument() *ServerArgument {
 func (s *ServerArgument) ParseCli(ctx *cli.Context) error {
 	s.Type = strings.ToUpper(ctx.String(consts.ServiceType))
 	s.Registry = strings.ToUpper(ctx.String(consts.Registry))
-	s.Verbose = ctx.Bool(consts.Verbose)
 	s.SliceParam.ProtoSearchPath = ctx.StringSlice(consts.ProtoSearchPath)
 	s.SliceParam.Pass = ctx.StringSlice(consts.Pass)
 	return nil

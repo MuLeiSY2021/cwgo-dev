@@ -35,6 +35,5 @@ func clientFlags() []cli.Flag {
 		&cli.StringFlag{Name: consts.Registry, Usage: "Specify the registry, default is None"},
 		&cli.StringSliceFlag{Name: consts.ProtoSearchPath, Aliases: []string{"I"}, Usage: "Add an IDL search path for includes. (Valid only if idl is protobuf)"},
 		&cli.StringSliceFlag{Name: consts.Pass, Usage: "pass param to hz or kitex"},
-		&cli.BoolFlag{Name: consts.Verbose, Usage: "Turn on verbose mode."},
 	}
 }

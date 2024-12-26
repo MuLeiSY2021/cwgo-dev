@@ -29,7 +29,6 @@ type ClientArgument struct {
 
 	SliceParam *SliceParam
 
-	Verbose  bool
 	Template string
 	Branch   string
 	Cwd      string
@@ -48,7 +47,6 @@ func NewClientArgument() *ClientArgument {
 func (c *ClientArgument) ParseCli(ctx *cli.Context) error {
 	c.Type = strings.ToUpper(ctx.String(consts.ServiceType))
 	c.Registry = strings.ToUpper(ctx.String(consts.Registry))
-	c.Verbose = ctx.Bool(consts.Verbose)
 	c.SliceParam.ProtoSearchPath = ctx.StringSlice(consts.ProtoSearchPath)
 	c.SliceParam.Pass = ctx.StringSlice(consts.Pass)
 	return nil
